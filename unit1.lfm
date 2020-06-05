@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 517
+  Left = 500
   Height = 359
-  Top = 282
+  Top = 192
   Width = 768
   Caption = 'Form1'
   ClientHeight = 359
@@ -23,6 +23,7 @@ object Form1: TForm1
     Top = 182
     Width = 336
     Caption = 'B:'
+    OnClick = Button2Click
     TabOrder = 1
   end
   object Button3: TButton
@@ -31,6 +32,7 @@ object Form1: TForm1
     Top = 272
     Width = 336
     Caption = 'C:'
+    OnClick = Button3Click
     TabOrder = 2
   end
   object Button4: TButton
@@ -39,6 +41,7 @@ object Form1: TForm1
     Top = 272
     Width = 336
     Caption = 'D:'
+    OnClick = Button4Click
     TabOrder = 3
   end
   object Memo1: TMemo
