@@ -24,6 +24,7 @@ type
     procedure FormCreate(Sender: TObject);
   private
     procedure get_question(Strength: Integer);
+    procedure win_check(button_text: String);
   public
   end;
 
@@ -43,7 +44,11 @@ procedure TForm1.FormCreate(Sender: TObject);
 begin
      current_question := 1;
      get_question(1);
-
+     // TODO:
+     // Add 'Game Over' screen
+     // Add 'You Won' screen
+     // Implement removal of used questions from questions pool
+     // Implement analysis questions
 end;
 
 procedure TForm1.get_question(Strength: Integer);
@@ -124,93 +129,18 @@ begin
      Memo1.Lines.Add(question);
 
      // Debug stuff
-     Memo1.Lines.Add(correct_answer);
-     Memo1.Lines.Add(file_name);
-     Memo1.Lines.Add(IntToStr(current_question));
+     //Memo1.Lines.Add(correct_answer);
+     //Memo1.Lines.Add(file_name);
+     //Memo1.Lines.Add(IntToStr(current_question));
 end;
 
-procedure TForm1.Button1Click(Sender: TObject);
-var
-  output_string: String;
+procedure TForm1.win_check(button_text: String);
 begin
-  output_string := Button1.Caption;
-  Delete(output_string, 1, 3);
+  Delete(button_text, 1, 3);
 
   //Memo1.Lines.Add(Button1.Caption);
 
-     if output_string = correct_answer then begin
-        current_question := current_question + 1;
-
-        if current_question <= 4 then
-            get_question(1)
-        else if current_question <= 10 then
-            get_question(2)
-        else if current_question <= 15 then
-            get_question(3)
-        else
-            // you won screen
-            Memo1.Lines.Add('You won!');
-     end;
-end;
-
-procedure TForm1.Button2Click(Sender: TObject);
-var
-   output_string: String;
-begin
-   output_string := Button2.Caption;
-   Delete(output_string, 1, 3);
-
-   //Memo1.Lines.Add(Button2.Caption);
-
-     if output_string = correct_answer then begin
-        current_question := current_question + 1;
-
-        if current_question <= 4 then
-            get_question(1)
-        else if current_question <= 10 then
-            get_question(2)
-        else if current_question <= 15 then
-            get_question(3)
-        else
-            // you won screen
-            Memo1.Lines.Add('You won!');
-     end;
-end;
-
-procedure TForm1.Button3Click(Sender: TObject);
-var
-  output_string: String;
-begin
-  output_string := Button3.Caption;
-  Delete(output_string, 1, 3);
-
-  //Memo1.Lines.Add(Button3.Caption);
-
-   if output_string = correct_answer then begin
-      current_question := current_question + 1;
-
-      if current_question <= 4 then
-          get_question(1)
-      else if current_question <= 10 then
-          get_question(2)
-      else if current_question <= 15 then
-          get_question(3)
-      else
-          // you won screen
-          Memo1.Lines.Add('You won!');
-   end;
-end;
-
-procedure TForm1.Button4Click(Sender: TObject);
-var
-  output_string: String;
-begin
-  output_string := Button4.Caption;
-  Delete(output_string, 1, 3);
-
-  //Memo1.Lines.Add(Button4.Caption);
-
-  if output_string = correct_answer then begin
+  if button_text = correct_answer then begin
      current_question := current_question + 1;
 
      if current_question <= 4 then
@@ -221,8 +151,44 @@ begin
          get_question(3)
      else
          // you won screen
-         Memo1.Lines.Add('You won!');
+        Memo1.Lines.Add('You won!');
   end;
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  output_string: String;
+begin
+  //Memo1.Lines.Add(Button1.Caption);
+  output_string := Button1.Caption;
+  win_check(output_string);
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+var
+  output_string: String;
+begin
+  //Memo1.Lines.Add(Button2.Caption);
+  output_string := Button2.Caption;
+  win_check(output_string);
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+var
+  output_string: String;
+begin
+  //Memo1.Lines.Add(Button3.Caption);
+  output_string := Button3.Caption;
+  win_check(output_string);
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+var
+  output_string: String;
+begin
+  //Memo1.Lines.Add(Button4.Caption);
+  output_string := Button4.Caption;
+  win_check(output_string);
 end;
 
 end.
