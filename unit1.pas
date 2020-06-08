@@ -25,6 +25,8 @@ type
   private
     procedure get_question(Strength: Integer);
     procedure win_check(button_text: String);
+    procedure game_over();
+    function current_money(question_number: Integer) : Cardinal;
   public
   end;
 
@@ -45,7 +47,6 @@ begin
      current_question := 1;
      get_question(1);
      // TODO:
-     // Add 'Game Over' screen
      // Add 'You Won' screen
      // Implement removal of used questions from questions pool
      // Implement analysis questions
@@ -89,7 +90,7 @@ begin
 
      file_name := logic_question_files[rand_question_number];
 
-     // Remove used item from questions so it doesn't come up again
+     // Remove used item from questions so it doesnt come up again
      //logic_question_files.Delete(rand_question_number);
 
      line_index := 0;
@@ -150,9 +151,32 @@ begin
      else if current_question <= 15 then
          get_question(3)
      else
-         // you won screen
-        Memo1.Lines.Add('You won!');
+         // you won screen here
+         Memo1.Lines.Add('You won!');
+  end
+  else
+     game_over;
+end;
+
+function TForm1.current_money(question_number: Integer) : Cardinal; // cardinal == unsigned int
+begin
+  case question_number of
+      0..4: current_money := 0;
+      5..9: current_money := 5000;
+      10..14: current_money := 100000;
+      15: current_money := 3000000;
   end;
+end;
+
+procedure TForm1.game_over();
+begin
+  Memo1.Lines.Clear;
+  Memo1.Lines.Add('Вы проиграли!');
+  Memo1.Lines.Add('Вы уходите домой с ' + IntToStr(current_money(current_question - 1)) + ' рублей!');
+  Button1.Enabled := false;
+  Button2.Enabled := false;
+  Button3.Enabled := false;
+  Button4.Enabled := false;
 end;
 
 procedure TForm1.Button1Click(Sender: TObject);
