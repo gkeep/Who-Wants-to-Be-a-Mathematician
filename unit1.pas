@@ -90,6 +90,7 @@ begin
          rand_question_number := Random(4);
 
      // Use question from analysis *or* logic
+     //
      Randomize;
 
      logic_or_analysis := Random(2) + 1;
@@ -100,14 +101,18 @@ begin
      else if logic_or_analysis = 2 then begin
         file_name := analysis_question_files[rand_question_number];
      end;
+     //
 
      // Remove used question so it doesnt come up again
+     //
      logic_question_files.Delete(rand_question_number);
      analysis_question_files.Delete(rand_question_number);
+     //
 
      line_index := 0;
 
      // Reading from plaintext file
+     //
      AssignFile(text_file, file_name);
      reset(text_file);
 
@@ -132,7 +137,9 @@ begin
      end;
 
      CloseFile(text_file);
+     //
 
+     // Print questions and answers
      Button1.Caption := 'A: ' + answer[1];
      Button2.Caption := 'B: ' + answer[2];
      Button3.Caption := 'C: ' + answer[3];
@@ -140,6 +147,7 @@ begin
 
      Memo1.Lines.Clear;
      Memo1.Lines.Add(question);
+     //
 
      // Debug stuff
      //Memo1.Lines.Add(correct_answer);
