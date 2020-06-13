@@ -73,23 +73,37 @@ var
   text_file: TextFile;
   rand_question_number: Integer;
   question: String;
+  logic_or_analysis: Integer;
 begin
      Randomize;
 
      // 1 - Easy
      // 2 - Medium
      // 3 - Hard quesitons
+     // * By the time we reach the next level
+     // * questions from previous levels should be deleted
      if Strength = 1 then
-         rand_question_number := Random(4)
+         rand_question_number := Random(3)
      else if Strength = 2 then
-         rand_question_number := Random(5) + 5
+         rand_question_number := Random(5)
      else if Strength = 3 then
-         rand_question_number := Random(10) + 5;
+         rand_question_number := Random(4);
 
-     file_name := logic_question_files[rand_question_number];
+     // Use question from analysis *or* logic
+     Randomize;
 
-     // Remove used item from questions so it doesnt come up again
+     logic_or_analysis := Random(2) + 1;
+
+     if logic_or_analysis = 1 then begin
+        file_name := logic_question_files[rand_question_number];
+     end
+     else if logic_or_analysis = 2 then begin
+        file_name := analysis_question_files[rand_question_number];
+     end;
+
+     // Remove used question so it doesnt come up again
      logic_question_files.Delete(rand_question_number);
+     analysis_question_files.Delete(rand_question_number);
 
      line_index := 0;
 
