@@ -24,6 +24,7 @@ type
     procedure Button4Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
+    procedure read_questions();
     procedure get_question(Strength: Integer);
     procedure win_check(button_text: String);
     procedure game_over(is_win: Boolean);
@@ -36,6 +37,8 @@ var
   answer: array [1..4] of String;
   correct_answer: String;
   current_question: Integer;
+  logic_question_files: TStringList;
+  analysis_question_files: TStringList;
 
 implementation
 
@@ -45,6 +48,7 @@ implementation
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
+     read_questions();
      current_question := 1;
      get_question(1);
      // TODO:
@@ -52,24 +56,29 @@ begin
      // Implement analysis questions
 end;
 
-procedure TForm1.get_question(Strength: Integer);
+procedure TForm1.read_questions();
 const
   logic_file_folder = 'Questions/L/';
   analysis_file_folder = 'Questions/A/';
+begin
+     logic_question_files := TStringList.Create;
+     FindAllFiles(logic_question_files, logic_file_folder, '*.txt', true);
+
+     analysis_question_files := TStringList.Create;
+     FindAllFiles(analysis_question_files, analysis_file_folder, '*.txt', true);
+end;
+
+procedure TForm1.get_question(Strength: Integer);
 var
   output_string: String;
   line_index: Integer;
   file_name: String;
-  logic_question_files: TStringList;
-  q_file: String;
+  //q_file: String;
   text_file: TextFile;
   rand_question_number: Integer;
   question: String;
 begin
      Randomize;
-
-     logic_question_files := TStringList.Create;
-     FindAllFiles(logic_question_files, logic_file_folder, '*.txt', true);
 
      // 1 - Easy
      // 2 - Medium
@@ -81,17 +90,10 @@ begin
      else if Strength = 3 then
          rand_question_number := Random(10) + 5;
 
-     // Read file names from directory
-     for q_file in logic_question_files do begin
-        file_name := q_file;
-     end;
-
-     //Memo1.Lines.Add(file_name);
-
      file_name := logic_question_files[rand_question_number];
 
      // Remove used item from questions so it doesnt come up again
-     //logic_question_files.Delete(rand_question_number);
+     logic_question_files.Delete(rand_question_number);
 
      line_index := 0;
 
