@@ -51,9 +51,6 @@ begin
      read_questions();
      current_question := 1;
      get_question(1);
-     // TODO:
-     // Implement removal of used questions from questions pool
-     // Implement analysis questions
 end;
 
 procedure TForm1.read_questions();
@@ -73,7 +70,6 @@ var
   output_string: String;
   line_index: Integer;
   file_name: String;
-  //q_file: String;
   text_file: TextFile;
   rand_question_number: Integer;
   question: String;
@@ -191,7 +187,6 @@ procedure TForm1.Button1Click(Sender: TObject);
 var
   output_string: String;
 begin
-  //Memo1.Lines.Add(Button1.Caption);
   output_string := Button1.Caption;
   win_check(output_string);
 end;
@@ -200,7 +195,6 @@ procedure TForm1.Button2Click(Sender: TObject);
 var
   output_string: String;
 begin
-  //Memo1.Lines.Add(Button2.Caption);
   output_string := Button2.Caption;
   win_check(output_string);
 end;
@@ -209,7 +203,6 @@ procedure TForm1.Button3Click(Sender: TObject);
 var
   output_string: String;
 begin
-  //Memo1.Lines.Add(Button3.Caption);
   output_string := Button3.Caption;
   win_check(output_string);
 end;
@@ -218,7 +211,6 @@ procedure TForm1.Button4Click(Sender: TObject);
 var
   output_string: String;
 begin
-  //Memo1.Lines.Add(Button4.Caption);
   output_string := Button4.Caption;
   win_check(output_string);
 end;
