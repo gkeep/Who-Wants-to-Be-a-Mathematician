@@ -25,7 +25,7 @@ type
   private
     procedure get_question(Strength: Integer);
     procedure win_check(button_text: String);
-    procedure game_over();
+    procedure game_over(is_win: Boolean);
     function current_money(question_number: Integer) : Cardinal;
   public
   end;
@@ -47,7 +47,6 @@ begin
      current_question := 1;
      get_question(1);
      // TODO:
-     // Add 'You Won' screen
      // Implement removal of used questions from questions pool
      // Implement analysis questions
 end;
@@ -151,11 +150,10 @@ begin
      else if current_question <= 15 then
          get_question(3)
      else
-         // you won screen here
-         Memo1.Lines.Add('You won!');
+         game_over(true);
   end
   else
-     game_over;
+     game_over(false);
 end;
 
 function TForm1.current_money(question_number: Integer) : Cardinal; // cardinal == unsigned int
@@ -168,11 +166,17 @@ begin
   end;
 end;
 
-procedure TForm1.game_over();
+procedure TForm1.game_over(is_win: Boolean);
 begin
   Memo1.Lines.Clear;
-  Memo1.Lines.Add('Вы проиграли!');
+  if is_win then
+     Memo1.Lines.Add('Вы выиграли!')
+  else
+     Memo1.Lines.Add('Вы проиграли!');
+
   Memo1.Lines.Add('Вы уходите домой с ' + IntToStr(current_money(current_question - 1)) + ' рублей!');
+
+  // Disable all buttons
   Button1.Enabled := false;
   Button2.Enabled := false;
   Button3.Enabled := false;
