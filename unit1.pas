@@ -16,6 +16,7 @@ type
     Button2: TButton;
     Button3: TButton;
     Button4: TButton;
+    ListBox1: TListBox;
     Memo1: TMemo;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
@@ -138,10 +139,11 @@ procedure TForm1.win_check(button_text: String);
 begin
   Delete(button_text, 1, 3);
 
-  //Memo1.Lines.Add(Button1.Caption);
-
   if button_text = correct_answer then begin
      current_question := current_question + 1;
+
+     // Select current question in listbox
+     ListBox1.ItemIndex := 15 - current_question;
 
      if current_question <= 4 then
          get_question(1)

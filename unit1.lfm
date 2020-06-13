@@ -1,17 +1,17 @@
 object Form1: TForm1
   Left = 500
-  Height = 335
+  Height = 323
   Top = 192
-  Width = 1031
+  Width = 972
   Caption = 'Form1'
-  ClientHeight = 335
-  ClientWidth = 1031
+  ClientHeight = 323
+  ClientWidth = 972
   OnCreate = FormCreate
   LCLVersion = '2.0.8.0'
   object Button1: TButton
     Left = 16
-    Height = 52
-    Top = 182
+    Height = 62
+    Top = 178
     Width = 336
     Caption = 'A: '
     OnClick = Button1Click
@@ -19,8 +19,8 @@ object Form1: TForm1
   end
   object Button2: TButton
     Left = 416
-    Height = 52
-    Top = 182
+    Height = 62
+    Top = 178
     Width = 336
     Caption = 'B:'
     OnClick = Button2Click
@@ -28,8 +28,8 @@ object Form1: TForm1
   end
   object Button3: TButton
     Left = 16
-    Height = 46
-    Top = 272
+    Height = 62
+    Top = 248
     Width = 336
     Caption = 'C:'
     OnClick = Button3Click
@@ -37,8 +37,8 @@ object Form1: TForm1
   end
   object Button4: TButton
     Left = 416
-    Height = 46
-    Top = 272
+    Height = 62
+    Top = 248
     Width = 336
     Caption = 'D:'
     OnClick = Button4Click
@@ -66,5 +66,39 @@ object Form1: TForm1
     TabOrder = 4
     TabStop = False
     WantReturns = False
+  end
+  object ListBox1: TListBox
+    Left = 768
+    Height = 294
+    Top = 16
+    Width = 192
+    ClickOnSelChange = False
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Unispace'
+    Font.Pitch = fpFixed
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    Items.Strings = (
+      '15 - 3 000 000 !!!'
+      '14 - 1 500 000'
+      '13 -   800 000'
+      '12 -   400 000'
+      '11 -   200 000'
+      '10 -   100 000 !!'
+      ' 9 -    50 000'
+      ' 8 -    25 000'
+      ' 7 -    15 000'
+      ' 6 -    10 000'
+      ' 5 -     5 000 !'
+      ' 4 -     3 000'
+      ' 3 -     2 000'
+      ' 2 -     1 000'
+      ' 1 -       500'
+    )
+    ItemHeight = 19
+    ParentFont = False
+    TabOrder = 5
   end
 end
