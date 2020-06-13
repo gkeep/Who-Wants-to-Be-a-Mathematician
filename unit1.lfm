@@ -2,10 +2,10 @@ object Form1: TForm1
   Left = 500
   Height = 323
   Top = 192
-  Width = 972
+  Width = 954
   Caption = 'Form1'
   ClientHeight = 323
-  ClientWidth = 972
+  ClientWidth = 954
   OnCreate = FormCreate
   LCLVersion = '2.0.8.0'
   object Button1: TButton
@@ -71,12 +71,12 @@ object Form1: TForm1
     Left = 768
     Height = 294
     Top = 16
-    Width = 192
+    Width = 176
     ClickOnSelChange = False
     Font.CharSet = ANSI_CHARSET
     Font.Color = clBlack
     Font.Height = -16
-    Font.Name = 'Unispace'
+    Font.Name = 'Consolas'
     Font.Pitch = fpFixed
     Font.Quality = fqDraft
     Font.Style = [fsBold]
