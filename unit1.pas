@@ -5,7 +5,8 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, StrUtils, Forms, FileUtil, Controls, Graphics, Dialogs, StdCtrls;
+  Classes, SysUtils, StrUtils, Forms, FileUtil, Controls, Graphics, Dialogs,
+  StdCtrls, ExtCtrls;
 
 type
 
@@ -16,6 +17,7 @@ type
     Button2: TButton;
     Button3: TButton;
     Button4: TButton;
+    Image1: TImage;
     ListBox1: TListBox;
     Memo1: TMemo;
     procedure Button1Click(Sender: TObject);
