@@ -13,7 +13,6 @@ uses
 
 begin
   RequireDerivedFormResource:=True;
-  Application.Title:='Who Wants to be a Mathematician';
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TForm1, Form1);
