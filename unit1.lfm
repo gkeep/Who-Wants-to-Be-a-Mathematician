@@ -1,11 +1,16 @@
 object Form1: TForm1
-  Left = 500
+  Left = 477
   Height = 336
-  Top = 192
+  Top = 174
   Width = 972
-  Caption = 'Form1'
+  BorderStyle = bsSingle
+  Caption = 'Кто хочет стать математиком?'
   ClientHeight = 336
   ClientWidth = 972
+  Constraints.MaxHeight = 336
+  Constraints.MaxWidth = 972
+  Constraints.MinHeight = 336
+  Constraints.MinWidth = 972
   OnCreate = FormCreate
   LCLVersion = '2.0.8.0'
   object Button1: TButton
@@ -100,7 +105,7 @@ object Form1: TForm1
       ' 2 -     1 000'
       ' 1 -       500'
     )
-    ItemHeight = 18
+    ItemHeight = 19
     ParentFont = False
     TabOrder = 5
   end
@@ -109,6 +114,9 @@ object Form1: TForm1
     Height = 336
     Top = 0
     Width = 1096
+    Constraints.MaxHeight = 336
+    Constraints.MaxWidth = 1096
+    Constraints.MinHeight = 336
     Picture.Data = {
       1754506F727461626C654E6574776F726B4772617068696305AE010089504E47
       0D0A1A0A0000000D49484452000003D4000001540806000000C5FB7475000000
